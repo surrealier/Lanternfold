@@ -1,0 +1,79 @@
+﻿<svg width="1280" height="480" viewBox="0 0 1280 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Lanternfold banner</title>
+  <desc id="desc">A banner for Lanternfold, an operator-facing Vision plus RAG plus Agent platform.</desc>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="40" x2="1210" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08131F"/>
+      <stop offset="0.5" stop-color="#0D2233"/>
+      <stop offset="1" stop-color="#12344A"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="180" y1="120" x2="330" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0B5" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FFB648" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#17364A" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#102838" stop-opacity="0.85"/>
+    </linearGradient>
+    <filter id="glow" x="96" y="58" width="336" height="336" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="soft" x="0" y="0" width="1280" height="480" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#02080D" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="480" rx="28" fill="url(#bg)"/>
+  <circle cx="1060" cy="78" r="110" fill="#2B657D" opacity="0.12"/>
+  <circle cx="1140" cy="340" r="150" fill="#61A86F" opacity="0.08"/>
+  <circle cx="140" cy="390" r="120" fill="#F5A742" opacity="0.06"/>
+
+  <g filter="url(#glow)">
+    <circle cx="250" cy="218" r="92" fill="#FFD36B" opacity="0.78"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="92" y="74" width="320" height="330" rx="28" fill="#0B1B29" fill-opacity="0.45" stroke="#33566B" stroke-opacity="0.55"/>
+  </g>
+
+  <g>
+    <path d="M235 106C235 86.1177 251.118 70 271 70C290.882 70 307 86.1177 307 106V129H235V106Z" stroke="#B9C8D2" stroke-width="12" stroke-linecap="round"/>
+    <rect x="206" y="128" width="130" height="185" rx="34" fill="#132736" stroke="#D9E5EA" stroke-opacity="0.75" stroke-width="10"/>
+    <rect x="228" y="151" width="86" height="136" rx="24" fill="url(#glass)"/>
+    <path d="M270 169C281.046 183.918 286.748 198.207 286.748 211.869C286.748 232.226 273.987 246 260.5 246C247.013 246 236 235.83 236 218.195C236 203.299 243.907 189.234 258.5 176L262.5 184.5C264.5 178.5 267 173.333 270 169Z" fill="#FFF4CD"/>
+    <path d="M218 323H324" stroke="#DAE6EC" stroke-width="12" stroke-linecap="round"/>
+    <path d="M238 348H304" stroke="#DAE6EC" stroke-width="14" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.95">
+    <circle cx="385" cy="136" r="6" fill="#F2B14F"/>
+    <circle cx="416" cy="116" r="4" fill="#F8D27B"/>
+    <circle cx="430" cy="156" r="5" fill="#89C7D6"/>
+    <circle cx="391" cy="184" r="3.5" fill="#7BC67E"/>
+    <path d="M382 136C440 142 503 165 548 202" stroke="#F0C36A" stroke-width="2.5" stroke-dasharray="7 8" opacity="0.75"/>
+    <path d="M430 156C474 166 522 195 557 235" stroke="#78B3C3" stroke-width="2.5" stroke-dasharray="7 8" opacity="0.7"/>
+  </g>
+
+  <g>
+    <text x="500" y="150" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="700">Lanternfold</text>
+    <text x="502" y="192" fill="#A9C5D3" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="500">See the event. Ground the risk. Guide the action.</text>
+    <text x="502" y="235" fill="#E7F1F5" font-family="Segoe UI, Arial, sans-serif" font-size="21">An operator-facing Vision + RAG + Agent system for turning video signals into evidence-backed decisions.</text>
+  </g>
+
+  <g>
+    <rect x="500" y="286" width="176" height="92" rx="18" fill="url(#panel)" stroke="#34556B"/>
+    <text x="522" y="318" fill="#8EC7D8" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">WATCH</text>
+    <text x="522" y="346" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Video Event</text>
+    <text x="522" y="368" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="15">MP4 or RTSP source</text>
+
+    <rect x="702" y="286" width="176" height="92" rx="18" fill="url(#panel)" stroke="#34556B"/>
+    <text x="724" y="318" fill="#F0C36A" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">GROUND</text>
+    <text x="724" y="346" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Policy + Trace</text>
+    <text x="724" y="368" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="15">Evidence and retrieval</text>
+
+    <rect x="904" y="286" width="176" height="92" rx="18" fill="url(#panel)" stroke="#34556B"/>
+    <text x="926" y="318" fill="#78C57F" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">ACT</text>
+    <text x="926" y="346" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Operator Report</text>
+    <text x="926" y="368" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="15">Summary, actions, QA</text>
+  </g>
+</svg>
