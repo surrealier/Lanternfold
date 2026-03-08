@@ -1,5 +1,5 @@
 ﻿<p align="center">
-  <img src=".github/assets/lanternfold-banner.svg" alt="Lanternfold banner" width="100%" />
+  <img src=".github/assets/lanternfold-banner-v2.svg" alt="Lanternfold banner" width="100%" />
 </p>
 
 <h1 align="center">Lanternfold</h1>
@@ -265,3 +265,4 @@ Natural upgrade paths from this MVP are:
 
 Lanternfold is not just a "video event detector."
 It is a system for turning video events into operator-facing, evidence-backed decisions.
+
