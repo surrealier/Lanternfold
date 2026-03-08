@@ -57,18 +57,18 @@
 
   <g>
     <rect x="468" y="308" width="182" height="94" rx="18" fill="url(#panel)" stroke="#34556B"/>
-    <text x="490" y="340" fill="#8EC7D8" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">WATCH</text>
-    <text x="490" y="368" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Video Event</text>
-    <text x="490" y="389" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="14">MP4 or RTSP source</text>
+    <text x="559" y="339" text-anchor="middle" fill="#8EC7D8" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">WATCH</text>
+    <text x="559" y="367" text-anchor="middle" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Video Event</text>
+    <text x="559" y="389" text-anchor="middle" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="12.5">MP4 or RTSP source</text>
 
     <rect x="678" y="308" width="182" height="94" rx="18" fill="url(#panel)" stroke="#34556B"/>
-    <text x="700" y="340" fill="#F0C36A" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">GROUND</text>
-    <text x="700" y="368" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Policy + Trace</text>
-    <text x="700" y="389" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="14">Evidence and retrieval</text>
+    <text x="769" y="339" text-anchor="middle" fill="#F0C36A" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">GROUND</text>
+    <text x="769" y="367" text-anchor="middle" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Policy + Trace</text>
+    <text x="769" y="389" text-anchor="middle" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="12.5">Evidence and retrieval</text>
 
     <rect x="888" y="308" width="182" height="94" rx="18" fill="url(#panel)" stroke="#34556B"/>
-    <text x="910" y="340" fill="#78C57F" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">ACT</text>
-    <text x="910" y="368" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Operator Report</text>
-    <text x="910" y="389" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="14">Summary, actions, QA</text>
+    <text x="979" y="339" text-anchor="middle" fill="#78C57F" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">ACT</text>
+    <text x="979" y="367" text-anchor="middle" fill="#F5FAFD" font-family="Segoe UI, Arial, sans-serif" font-size="17">Operator Report</text>
+    <text x="979" y="389" text-anchor="middle" fill="#A8C0CC" font-family="Segoe UI, Arial, sans-serif" font-size="12.5">Summary, actions, QA</text>
   </g>
 </svg>
