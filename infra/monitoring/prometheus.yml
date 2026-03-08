@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: eventops-api
+    metrics_path: /healthz
+    static_configs:
+      - targets: ["eventops-api:8000"]

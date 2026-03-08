@@ -1,0 +1,8 @@
+[
+  {
+    "name": "fall-high-risk",
+    "event_type": "fall",
+    "question": "왜 high risk로 분류됐어?",
+    "expected_terms": ["high risk", "SOP-12", "evidence"]
+  }
+]

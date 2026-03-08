@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Event {{ event.event_id }}{% endblock %}
+{% block content %}
+<section class="detail-grid">
+  <article class="panel">
+    <div class="panel-header"><h2>Event Detail</h2><span>{{ event.event_id }}</span></div>
+    <dl class="kv">
+      <dt>Type</dt><dd>{{ event.event_type }}</dd>
+      <dt>Risk</dt><dd>{{ event.risk_level }}</dd>
+      <dt>Confidence</dt><dd>{{ event.confidence }}</dd>
+      <dt>Status</dt><dd>{{ event.status }}</dd>
+      <dt>Feedback</dt><dd>{{ event.operator_feedback or 'none' }}</dd>
+    </dl>
+    <form method="post" action="/ui/events/{{ event.event_id }}/review" class="stack-form top-gap">
+      <label>Status
+        <select name="status_value">
+          <option value="new">new</option>
+          <option value="reviewed">reviewed</option>
+          <option value="escalated">escalated</option>
+          <option value="dismissed">dismissed</option>
+        </select>
+      </label>
+      <label>Operator Feedback<textarea name="operator_feedback" rows="3" placeholder="validated by operator"></textarea></label>
+      <button type="submit">Save Review</button>
+    </form>
+  </article>
+  <article class="panel">
+    <div class="panel-header"><h2>Report</h2><span>{{ event.report.risk_level if event.report else 'missing' }}</span></div>
+    <form method="post" action="/ui/events/{{ event.event_id }}/reports" class="inline-form push-right">
+      <button type="submit">Generate Report</button>
+    </form>
+    {% if event.report %}
+    <p>{{ event.report.summary }}</p>
+    <h3>Recommended Actions</h3>
+    <ul>{% for action in event.report.recommended_actions %}<li>{{ action }}</li>{% endfor %}</ul>
+    <h3>Policy References</h3>
+    <ul>{% for ref in event.report.policy_refs %}<li>{{ ref }}</li>{% endfor %}</ul>
+    {% else %}
+    <p>No report has been generated.</p>
+    {% endif %}
+  </article>
+</section>
+<section class="detail-grid">
+  <article class="panel">
+    <div class="panel-header"><h2>Operator QA</h2><span>{{ event.queries|length }} answers</span></div>
+    <form method="post" action="/ui/events/{{ event.event_id }}/qa" class="stack-form">
+      <label>Question<textarea name="question" rows="3" placeholder="왜 high risk로 분류됐어?" required></textarea></label>
+      <button type="submit">Ask Question</button>
+    </form>
+    <ul class="answer-list">
+      {% for item in event.queries %}
+      <li>
+        <strong>{{ item.question }}</strong>
+        <p>{{ item.answer }}</p>
+      </li>
+      {% else %}
+      <li>No questions yet.</li>
+      {% endfor %}
+    </ul>
+  </article>
+  <article class="panel">
+    <div class="panel-header"><h2>Notifications</h2><span>{{ event.notifications|length }} sent</span></div>
+    <ul>
+      {% for notification in event.notifications %}
+      <li>{{ notification.channel_type }} → {{ notification.recipient }} ({{ notification.status }})</li>
+      {% else %}
+      <li>No notifications yet.</li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+<section class="detail-grid">
+  <article class="panel">
+    <div class="panel-header"><h2>Evidence</h2><span>{{ event.evidence|length }} item(s)</span></div>
+    <ul>
+      {% for evidence in event.evidence %}
+      <li>{{ evidence.frame_uri }} at {{ evidence.timestamp }}</li>
+      {% else %}
+      <li>No evidence captured.</li>
+      {% endfor %}
+    </ul>
+  </article>
+  <article class="panel">
+    <div class="panel-header"><h2>Raw Detections</h2><span>{{ event.raw_detections|length }} item(s)</span></div>
+    <ul>
+      {% for detection in event.raw_detections %}
+      <li>{{ detection.label }} {{ '%.2f'|format(detection.confidence) }} at {{ detection.detected_at }}</li>
+      {% else %}
+      <li>No detections recorded.</li>
+      {% endfor %}
+    </ul>
+  </article>
+</section>
+<section class="panel">
+  <div class="panel-header"><h2>Trace</h2><span>{{ event.trace.latency_ms }} ms</span></div>
+  <ul>
+    {% for state in event.trace.states %}
+    <li>{{ state.name }} - {{ state.status }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

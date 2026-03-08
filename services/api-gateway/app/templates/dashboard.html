@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}EventOps Dashboard{% endblock %}
+{% block content %}
+<section class="metrics-grid">
+  <article><span>Sources</span><strong>{{ metrics.sources_total }}</strong></article>
+  <article><span>Jobs</span><strong>{{ metrics.jobs_total }}</strong></article>
+  <article><span>Events</span><strong>{{ metrics.events_total }}</strong></article>
+  <article><span>High Risk</span><strong>{{ metrics.high_risk_events }}</strong></article>
+</section>
+<section class="detail-grid">
+  <article class="panel">
+    <div class="panel-header"><h2>Upload Policy</h2><span>{{ documents|length }} docs</span></div>
+    <form method="post" action="/ui/documents" enctype="multipart/form-data" class="stack-form">
+      <label>Title<input type="text" name="title" value="SOP-12" required /></label>
+      <label>Version<input type="text" name="version" value="v1" required /></label>
+      <label>Document<input type="file" name="file" required /></label>
+      <button type="submit">Index Document</button>
+    </form>
+  </article>
+  <article class="panel">
+    <div class="panel-header"><h2>Upload Video Source</h2><span>MP4</span></div>
+    <form method="post" action="/ui/sources/files" enctype="multipart/form-data" class="stack-form">
+      <label>Source Name<input type="text" name="source_name" placeholder="fall_demo" required /></label>
+      <label>Video File<input type="file" name="file" required /></label>
+      <button type="submit">Upload Source</button>
+    </form>
+  </article>
+  <article class="panel">
+    <div class="panel-header"><h2>Register RTSP</h2><span>Optional</span></div>
+    <form method="post" action="/ui/sources/rtsp" class="stack-form">
+      <label>Source Name<input type="text" name="source_name" placeholder="factory_cam_01" required /></label>
+      <label>RTSP URI<input type="text" name="source_uri" placeholder="rtsp://..." required /></label>
+      <button type="submit">Register RTSP</button>
+    </form>
+  </article>
+</section>
+<section class="panel">
+  <div class="panel-header"><h2>Registered Sources</h2><span>{{ sources|length }} item(s)</span></div>
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Type</th><th>URI</th><th>Run</th></tr>
+    </thead>
+    <tbody>
+      {% for source in sources %}
+      <tr>
+        <td>{{ source.source_name }}</td>
+        <td>{{ source.source_type }}</td>
+        <td>{{ source.source_uri }}</td>
+        <td>
+          <form method="post" action="/ui/inference/jobs" class="inline-form">
+            <input type="hidden" name="source_id" value="{{ source.source_id }}" />
+            <button type="submit">Run Inference</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="4">No sources yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+<section class="panel">
+  <div class="panel-header"><h2>Recent Events</h2><span>{{ events|length }} item(s)</span></div>
+  <table>
+    <thead>
+      <tr><th>Event ID</th><th>Type</th><th>Risk</th><th>Status</th><th>Confidence</th></tr>
+    </thead>
+    <tbody>
+      {% for event in events %}
+      <tr>
+        <td><a href="/events/{{ event.event_id }}">{{ event.event_id }}</a></td>
+        <td>{{ event.event_type }}</td>
+        <td>{{ event.risk_level }}</td>
+        <td>{{ event.status }}</td>
+        <td>{{ '%.2f'|format(event.confidence) }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5">No events yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

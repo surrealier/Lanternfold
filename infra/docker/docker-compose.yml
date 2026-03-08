@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      EVENTOPS_DATABASE_URL: sqlite:////app/data/eventops.db
+      EVENTOPS_STORAGE_ROOT: /app/data/storage
+      EVENTOPS_SEED_SAMPLE_DATA: "true"
+      EVENTOPS_NOTIFICATION_MODE: record
+    volumes:
+      - eventops-data:/app/data
+
+volumes:
+  eventops-data:

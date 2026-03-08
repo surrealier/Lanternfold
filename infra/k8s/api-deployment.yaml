@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eventops-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eventops-api
+  template:
+    metadata:
+      labels:
+        app: eventops-api
+    spec:
+      containers:
+        - name: api
+          image: eventops-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: EVENTOPS_DATABASE_URL
+              value: sqlite:////app/data/eventops.db
+            - name: EVENTOPS_STORAGE_ROOT
+              value: /app/data/storage
+            - name: EVENTOPS_SEED_SAMPLE_DATA
+              value: "true"
+            - name: EVENTOPS_NOTIFICATION_MODE
+              value: record
+          volumeMounts:
+            - name: eventops-data
+              mountPath: /app/data
+      volumes:
+        - name: eventops-data
+          emptyDir: {}
